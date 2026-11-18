@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cari Sumber Skripsi Faiz</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eef1f8;--panel:#fff;--fg:#121a33;--mut:#5b6685;--line:#dbe0ee;--hero:#2543e8;--acc:#2543e8;--soft:#e4e9fb;
+--ok:#1b7a43;--okbg:#dff4e7;--warn:#8a5a00;--warnbg:#fdf0cc;--no:#b02a2a;--nobg:#fbe0e0;--na:#4b5573;--nabg:#e6e9f2;
+--disp:'Sora',system-ui,sans-serif;--sans:'DM Sans',system-ui,sans-serif;--sh:0 1px 2px rgba(18,26,51,.06),0 8px 24px rgba(18,26,51,.06)}
+:root[data-theme="dark"]{--bg:#0d1222;--panel:#151c33;--fg:#e8ebf7;--mut:#9ba5c4;--line:#27304f;--hero:#1a2457;--acc:#8ea2ff;--soft:#1e2748;
+--ok:#79d6a1;--okbg:#14301f;--warn:#f0c766;--warnbg:#38301a;--no:#ff9b9b;--nobg:#3d1e1e;--na:#b6bed8;--nabg:#232b47;--sh:none;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans);padding-bottom:64px}
+.in{max-width:1080px;margin:0 auto;padding:0 16px}
+.hero{background:var(--hero);color:#fff;padding:44px 0 36px;border-radius:0 0 32px 32px}
+.eyebrow{display:inline-block;font:600 .8rem var(--sans);background:rgba(255,255,255,.16);padding:5px 12px;border-radius:99px;margin-bottom:16px}
+h1{font:800 clamp(2rem,6vw,3.4rem)/1.05 var(--disp);letter-spacing:-.03em;margin:0 0 12px}
+.lead{max-width:62ch;margin:0 0 22px;opacity:.9}
+.stats{display:flex;gap:10px;flex-wrap:wrap}
+.stats div{background:rgba(255,255,255,.12);border-radius:14px;padding:10px 16px;min-width:120px}
+.stats b{display:block;font:700 1.6rem/1.1 var(--disp)}.stats span{font-size:.82rem;opacity:.85}
+.tg{margin-left:auto;font:600 .88rem var(--sans);background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:9px 14px;cursor:pointer}
+.top{display:flex;align-items:flex-start;gap:12px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 10px}
+.search{display:flex;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:6px 6px 6px 14px;box-shadow:var(--sh)}
+.search input{flex:1;border:0;background:transparent;color:var(--fg);font:500 1rem var(--sans);outline:none;min-width:0}
+.search button{border:0;background:var(--soft);color:var(--fg);border-radius:10px;padding:8px 12px;font:600 .85rem var(--sans);cursor:pointer}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{font:600 .84rem var(--sans);border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:99px;padding:6px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#0d1222}
+.count{font-size:.85rem;color:var(--mut);margin:8px 2px 0}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:6px;min-width:0}
+.card h3{font:700 1.02rem/1.3 var(--disp);margin:0}
+.jr{color:var(--mut);font-size:.9rem;margin:0}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font:600 .75rem var(--sans);border-radius:99px;padding:3px 10px}
+.p-ok{background:var(--okbg);color:var(--ok)}.p-warn{background:var(--warnbg);color:var(--warn)}.p-no{background:var(--nobg);color:var(--no)}.p-na{background:var(--nabg);color:var(--na)}
+.note{font-size:.9rem;margin:2px 0 0}
+.note b{font-weight:600}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.a{font:600 .84rem var(--sans);text-decoration:none;border-radius:10px;padding:7px 12px;border:1px solid var(--line);color:var(--fg);background:transparent;cursor:pointer}
+.a.pdf{background:var(--acc);border-color:var(--acc);color:#fff}
+:root[data-theme="dark"] .a.pdf{color:#0d1222}
+.a:hover{border-color:var(--acc)}
+.empty{text-align:center;color:var(--mut);padding:40px 0;grid-column:1/-1}
+.foot{color:var(--mut);font-size:.85rem;margin-top:28px}
+@media (max-width:760px){.list{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in">
+<div class="top"><span class="eyebrow">Skripsi · Muhammad Faiz Rizqi Pramudya · UNESA</span><button class="tg" id="theme" type="button">Ganti tema</button></div>
+<h1>Cari sumber skripsi</h1>
+<p class="lead">Semua sumber di satu tempat. Kalau PDF-nya ada, tombol <b>Buka PDF</b> mengarah ke file di bimbinganfaiz.vercel.app (unggah dulu versi terbaru situsmu agar PDF Chaudhuri ikut tersedia). Kalau tidak ada, pakai <b>Link asli</b> untuk membuka halaman jurnalnya, lalu <b>Cek SINTA</b> untuk memastikan peringkatnya.</p>
+<div class="stats" id="stats"></div>
+</div></header>
+
+<div class="in">
+<div class="bar">
+<form class="search" id="f"><input id="q" type="search" placeholder="Cari nama penulis, tahun, jurnal, atau kata kunci…" autocomplete="off" aria-label="Cari sumber"><button type="button" id="clr">Hapus</button></form>
+<div class="chips" id="chips"></div>
+<p class="count" id="count"></p>
+</div>
+<main class="list" id="list"></main>
+<p class="foot">Status SINTA diambil dari halaman resmi jurnal atau garuda/sinta.kemdiktisaintek.go.id pada November 2026. "Belum terverifikasi" berarti saya tidak menemukan bukti peringkatnya, jadi cek sendiri lewat tombol Cek SINTA (cari nama jurnalnya di kolom Journals).</p>
+</div>
+
+<script>
+var VERCEL='https://bimbinganfaiz.vercel.app/';
+var BASE=/vercel\.app$/.test(location.hostname)?'':VERCEL;
+// st: ok = SINTA 1–4 / Scopus, low = SINTA 5–6, na = belum terverifikasi, nj = bukan jurnal (skripsi, web, buku, preprint), sec = kutipan sekunder
+var D=[
+{c:"Adzkiya'",j:"Kutipan sekunder lewat Susilo et al. (2023)",st:"sec",s:"Sekunder",pdf:["Susilo_2023_ElBarka_EN.pdf"],n:"Sumber aslinya tidak saya temukan. Tulis sebagai “Adzkiya' dalam Susilo et al. (2023)” atau ganti dengan sumber primer."},
+{c:"Asmayanti et al. (2026)",j:"Jurnal EMAK (Pubmedia)",st:"na",s:"Belum terverifikasi",u:"https://penerbitadm.pubmedia.id/index.php/jurnalemak/article/view/3768"},
+{c:"Cahyadi & Respati (2024)",j:"Manajerial, Universitas Muhammadiyah Gresik",st:"ok",s:"SINTA 3",u:"https://journal.umg.ac.id/index.php/manajerial/article/download/7560/4127",n:"Peringkat SINTA 3 tertera di beranda jurnal."},
+{c:"Faluni et al. (2024)",j:"PERKARA (Universitas STEKOM)",st:"na",s:"Belum terverifikasi",pdf:["Perkara_2024.pdf"],u:"https://journal.stekom.ac.id/index.php/PERKARA/article/download/1642/1163/4665",v:"X1",n:"<b>Dipakai untuk X1</b> atas arahan Bu Fitriah: jaminan kualitas produk, reparasi, ganti kerugian. Hanya terindeks Garuda; SINTA tidak ditemukan. Catatan kaki no. 2 merujuk skripsi Tussyakdiah (UIN Suska, 2020)."},
+{c:"Ghafur",j:"Kutipan sekunder lewat Susilo et al. (2023)",st:"sec",s:"Sekunder",pdf:["Susilo_2023_ElBarka_EN.pdf"],n:"Tulis sebagai kutipan dalam Susilo et al. (2023)."},
+{c:"Hadi & Rumanto (2026)",j:"JIE Lariba, Universitas Islam Indonesia",st:"ok",s:"SINTA 2",pdf:["Hadi_Rumanto_2026.pdf"],u:"https://journal.uii.ac.id/JIELariba/article/view/43978",v:"Teori sinyal"},
+{c:"Hardiati",j:"Kutipan sekunder lewat Susilo et al. (2023)",st:"sec",s:"Sekunder",pdf:["Susilo_2023_ElBarka_EN.pdf"],n:"Tulis sebagai kutipan dalam Susilo et al. (2023)."},
+{c:"Hermanto et al. (2025)",j:"Belum ditemukan",st:"na",s:"Belum ditemukan",n:"Artikelnya belum ketemu. Cek judul lengkapnya di daftar pustaka, lalu cari lewat Google Scholar."},
+{c:"Indrianti & Susilowati (2026)",j:"Jurnal Ekonomika dan Bisnis Islam (JEKOBI), UNESA",st:"na",s:"Belum terverifikasi",u:"https://journal.unesa.ac.id/index.php/jei/article/view/51384"},
+{c:"Jannah & Indrarini (2025)",j:"Jurnal Ekonomika dan Bisnis Islam (JEKOBI), UNESA, 8(1)",st:"na",s:"Belum terverifikasi",u:"https://journal.unesa.ac.id/index.php/jei/article/view/37138",v:"X3",n:"Etika bisnis Islam terhadap kepuasan pelanggan."},
+{c:"Lailia & Guritno (2025)",j:"JEKO, Politeknik Baubau",st:"na",s:"Belum terverifikasi",u:"https://ejournal.poltekbaubau.ac.id/index.php/jeko/article/view/1017"},
+{c:"Makhmudah & Anwar (2022)",j:"Jurnal Ekonomika dan Bisnis Islam (JEKOBI), UNESA",st:"na",s:"Belum terverifikasi",u:"https://journal.unesa.ac.id/index.php/jei/article/download/18522/9216/76548"},
+{c:"Nisa & Hutagalung (2022)",j:"JBPD (Penerbit Goodwood)",st:"na",s:"Belum terverifikasi",u:"https://penerbitgoodwood.com/index.php/JBPD/article/view/642"},
+{c:"Oktovian & Herfianti (2026)",j:"Jurnal Entrepreneur dan Manajemen Sains (JEMS), UM Bengkulu",st:"low",s:"SINTA 5",u:"https://jurnal.umb.ac.id/index.php/jems/article/view/10645",n:"<b>Di bawah batas SINTA 4.</b> Laman jurnal menyebut terakreditasi SINTA 5 (SK 177/E/Kpt/2024). Pertimbangkan diganti."},
+{c:"Pradana & Fikriyah (2023)",j:"Jurnal Ekonomika dan Bisnis Islam (JEKOBI), UNESA, 6(2), 150–159",st:"na",s:"Belum terverifikasi",u:"https://journal.unesa.ac.id/index.php/jei/search/search?query=Pradana+Fikriyah",n:"Link mengarah ke pencarian di situs jurnal karena alamat artikelnya belum saya dapat."},
+{c:"Pratiwi et al. (2023)",j:"Jurnal Ekonomika dan Bisnis Islam (JEKOBI), UNESA",st:"na",s:"Belum terverifikasi",u:"https://journal.unesa.ac.id/index.php/jei/article/view/27666",n:"<b>Cek isi:</b> topik artikel ini keberlanjutan usaha, bukan kepercayaan/loyalitas. Pastikan kalimat yang dikutip memang ada di artikel."},
+{c:"Pritandhari (2015)",j:"Promosi: Jurnal Pendidikan Ekonomi, 3(1), 50–60",st:"na",s:"Belum terverifikasi",u:"https://ojs.fkip.ummetro.ac.id/index.php/ekonomi/article/view/142",v:"X2",n:"Sumber yang mengutip Selnes. Unduh dari situs jurnal untuk memastikan empat indikatornya tertulis di sana."},
+{c:"Pulungan et al. (2023)",j:"Manivest (Widya Karya)",st:"na",s:"Belum terverifikasi",u:"https://ejournal.widyakarya.ac.id/index.php/Manivest/article/view/46"},
+{c:"Putra (2020)",j:"Jurnal Manajemen Dayasaing UMS atau JAM UB (belum pasti)",st:"na",s:"Belum terverifikasi",u:"https://journals.ums.ac.id/dayasaing/article/download/8456/5182",u2:"https://jurnaljam.ub.ac.id/index.php/jam/article/view/1671",n:"Ada dua kandidat. Cocokkan judulnya dengan daftar pustaka."},
+{c:"Sangkay et al. (2021)",j:"JMBI UNSRAT",st:"ok",s:"SINTA 4",u:"https://ejournal.unsrat.ac.id/v3/index.php/jmbi/article/view/32360",n:"Laman jurnal: SINTA 5 lalu naik ke SINTA 4 mulai 2022."},
+{c:"Setiawan et al. (2025)",j:"Jurnal Informatika Ekonomi Bisnis (INFEB), perkiraan",st:"na",s:"Belum terverifikasi",u:"https://infeb.org/index.php/infeb/article/view/1218",n:"Cocokkan judulnya dulu, saya belum 100% yakin ini artikel yang sama."},
+{c:"Suharsono et al. (2023)",j:"Journal Economic Management and Business (EMANIS), Univ. Dharmawangsa",st:"ok",s:"SINTA 4",u:"https://jurnal.dharmawangsa.ac.id/index.php/emanis/article/view/4177"},
+{c:"Susilo et al. (2023)",j:"El Barka, IAIN Ponorogo",st:"ok",s:"SINTA 3",pdf:["Susilo_2023_ElBarka_EN.pdf","Susilo_2023_Terjemahan_ID.pdf"],pl:["PDF (Inggris)","Terjemahan"],u:"https://jurnal.iainponorogo.ac.id/index.php/elbarka/article/view/3979",v:"X3",n:"Sumber indikator X3: shiddiq, amanah, tabligh, fathanah."},
+{c:"Syafa'at & Afif (2021)",j:"IJIEF, Pascasarjana UIN KHAS Jember",st:"na",s:"Belum terverifikasi",pdf:["Syafaat_Afif_2021.pdf"],u:"https://jurnalpasca.uinkhas.ac.id/index.php/IJIEF/article/download/1002/303",n:"Dikutip sebagai penelitian terdahulu. Empat indikator Tjiptono di dalamnya tidak dipakai lagi."},
+{c:"Syamsudin (2018)",j:"NU Online (artikel web)",st:"nj",s:"Artikel web",u:"https://nu.or.id/syariah/hukum-penjual-menolak-pengembalian-barang-cacat-yang-sudah-dibeli-iYhVo",n:"Bukan jurnal. Boleh untuk dalil/penjelasan fikih, jangan untuk indikator."},
+{c:"Tanzil & Kristiawan (2023)",j:"JMBI UNSRAT",st:"ok",s:"SINTA 4",u:"https://ejournal.unsrat.ac.id/v3/index.php/jmbi/article/view/48854"},
+{c:"Yahya",j:"Kutipan sekunder lewat Susilo et al. (2023)",st:"sec",s:"Sekunder",pdf:["Susilo_2023_ElBarka_EN.pdf"],n:"Tulis sebagai kutipan dalam Susilo et al. (2023)."},
+{c:"Yundari et al. (2024)",j:"Master: Jurnal Manajemen dan Bisnis Terapan, UM Purwokerto",st:"na",s:"Belum terverifikasi",u:"https://doi.org/10.30595/jmbt.v4i2.24443"},
+{c:"Zafira & Anwar (2024)",j:"Jurnal Ekonomika dan Bisnis Islam (JEKOBI), UNESA",st:"na",s:"Belum terverifikasi",u:"https://journal.unesa.ac.id/index.php/jei/article/view/30279"},
+{c:"Januardi (2024)",j:"Skripsi S1, Universitas Andalas",st:"nj",s:"Skripsi",u:"http://scholar.unand.ac.id/468239/",n:"Skripsi, bukan jurnal. Cek apakah dosen membolehkan skripsi sebagai rujukan."},
+{c:"Lubis (2024a)",j:"NU Online (tafsir Al-Maidah ayat 1)",st:"nj",s:"Artikel web",u:"https://nu.or.id/tafsir/tafsir-surat-al-maidah-ayat-1-dalil-khiyar-dalam-jual-beli-4dw6a"},
+{c:"Lubis (2024b)",j:"NU Online (belum ketemu artikelnya)",st:"nj",s:"Artikel web",u:"https://nu.or.id/search?q=Lubis+khiyar",n:"Link ini pencarian di NU Online. Cocokkan dengan judul di daftar pustaka."},
+{c:"Prastiwi & Ali (2022)",j:"Belum ditemukan (kemungkinan berita)",st:"nj",s:"Belum ditemukan",n:"Kemungkinan artikel berita. Kalau dipakai untuk data fenomena, sertakan URL berita aslinya."},
+{c:"Wijaya, Nasuka & Hidayat (2022)",j:"Journal of Islamic Marketing (Emerald)",st:"ok",s:"Internasional, Scopus",u:"https://doi.org/10.1108/JIMA-04-2020-0100"},
+{c:"Tjiptono (2006) dalam Karimah (2019)",j:"Skripsi S1, UIN Sunan Ampel Surabaya",st:"nj",s:"Skripsi",pdf:["Karimah_2019_Skripsi_UINSA.pdf"],n:"Tidak dipakai lagi: empat indikator Tjiptono versi lama, diganti tiga indikator Perkara."},
+{c:"EMANIS (2024)",j:"Journal Economic Management and Business (EMANIS)",st:"ok",s:"SINTA 4",pdf:["EMANIS_2024.pdf"],n:"Tidak dipakai lagi untuk indikator: mengutip empat indikator Tjiptono dalam Karimah (2019:53)."},
+{c:"Tamba & Chandrika (2023)",j:"JAMBIS: Jurnal Administrasi Bisnis, 3(1), 82–93",st:"na",s:"Belum terverifikasi",pdf:["Tamba_Chandrika_2023_JAMBIS.pdf"],v:"X2",n:"Dipakai untuk X2: empat indikator Selnes dalam Pritandhari (2015), hal. 86 (PDF hal. 5). ISSN di halaman depan masih kosong."},
+{c:"Ekawaty (2020)",j:"Jurnal Manajemen Bisnis, UMI",st:"na",s:"Belum terverifikasi",pdf:["JMB_UMI_Ekawaty_2020.pdf"],v:"X2"},
+{c:"Andriansyah",j:"Hirarki (tidak dipakai)",st:"na",s:"Tidak dipakai",pdf:["Andriansyah_Hirarki.pdf"],v:"X2"},
+{c:"MSEJ (2024)",j:"Management Studies and Entrepreneurship Journal (tidak dipakai)",st:"na",s:"Tidak dipakai",pdf:["MSEJ_2024.pdf"],v:"X2"},
+{c:"Sari et al. dalam Hammada (2021)",j:"INVESTASI (tidak dipakai)",st:"na",s:"Tidak dipakai",pdf:["INVESTASI_Sari_Hammada.pdf"],v:"X2"},
+{c:"Rizkiawan et al. (2023)",j:"UNIPMA (tidak dipakai)",st:"na",s:"Tidak dipakai",pdf:["Rizkiawan_2023_UNIPMA.pdf"],v:"X2"},
+{c:"Iqtishodia",j:"Iqtishodia, Al-Qolam",st:"na",s:"Belum terverifikasi",pdf:["Iqtishodia.pdf"],v:"X3",n:"Pendukung empat sifat Nabi (hal. 8)."},
+{c:"Nafiuddin (2018)",j:"Tidak dipakai (hanya sifat shiddiq)",st:"na",s:"Tidak dipakai",pdf:["Nafiuddin_2018.pdf"],v:"X3"},
+{c:"Jubaedi (2018)",j:"Tidak dipakai (lima prinsip)",st:"na",s:"Tidak dipakai",pdf:["Jubaedi_2018.pdf"],v:"X3"},
+{c:"Saputra (2026)",j:"Tidak dipakai (prinsip tauhid dst.)",st:"na",s:"Tidak dipakai",pdf:["Saputra_2026.pdf"],v:"X3"},
+{c:"Spence (1973)",j:"Quarterly Journal of Economics",st:"ok",s:"Internasional, klasik",pdf:["Spence_1973_Job_Market_Signaling.pdf"],u:"https://doi.org/10.2307/1882010",v:"Teori sinyal"},
+{c:"Connelly et al. (2025)",j:"Journal of Management, 51(1) (Scopus Q1)",st:"ok",s:"Internasional, Scopus",pdf:["Connelly_2024_Signaling_Theory.pdf"],v:"Teori sinyal",n:"Edisi cetak 2025 (vol. 51); PDF ini versi terbit daring 2024. Menulis 2025 di skripsi sudah benar."},
+{c:"Negash & Akhbar (2024)",j:"Cleaner and Responsible Consumption (Elsevier, Scopus)",st:"ok",s:"Internasional, Scopus",pdf:["Negash_Akhbar_2024.pdf"],u:"https://www.sciencedirect.com/science/article/pii/S2666784324000445",v:"Teori sinyal"},
+{c:"Ahmad (2026)",j:"MPRA Paper 128601 (preprint)",st:"nj",s:"Preprint",pdf:["Ahmad_2026_MPRA.pdf"],u:"https://mpra.ub.uni-muenchen.de/128601/",v:"Teori sinyal",n:"Preprint, bukan artikel jurnal."},
+{c:"Jarvis, MacKenzie & Podsakoff (2003)",j:"Journal of Consumer Research",st:"ok",s:"Internasional, Scopus",u:"https://doi.org/10.1086/376806",v:"Bab 3",n:"Dasar penentuan formatif/reflektif (empat kriteria)."},
+{c:"Jarvenpaa, Tractinsky & Vitale (2000)",j:"Information Technology and Management",st:"ok",s:"Internasional, Scopus",u:"https://doi.org/10.1023/A:1019104520776",n:"Dikutip di kerangka berpikir (reputasi → kepercayaan). Tidak lagi dipakai untuk indikator."},
+{c:"Selnes (1993)",j:"European Journal of Marketing",st:"ok",s:"Internasional, Scopus",u:"https://doi.org/10.1108/03090569310043179",n:"Kemungkinan sumber asli Selnes, tetapi berbayar dan belum bisa dicek. Di skripsi ditulis Selnes (dalam Pritandhari, 2015) tanpa tahun."},
+{c:"Chaudhuri & Holbrook (2001)",j:"Journal of Marketing, 65(2), 81–93",st:"ok",s:"Internasional, Scopus",pdf:["Chaudhuri_Holbrook_2001_Terjemahan_ID.pdf"],pl:["Terjemahan"],u:"https://business.columbia.edu/sites/default/files-efs/pubfiles/593/The_Chain_of_Effects.pdf",u2:"https://doi.org/10.1509/jmkg.65.2.81.18255",v:"Y",n:"Indikator Y: percaya, dapat diandalkan, jujur, aman (hal. 87; α = 0,81), konsep di hal. 82. Link asli = PDF bahasa Inggris."},
+{c:"Rindova et al. (2005)",j:"Academy of Management Journal, 48(6), 1033–1049",st:"ok",s:"Internasional, Scopus",u:"https://doi.org/10.5465/amj.2005.19573108",v:"X2",n:"Dasar X2 formatif: reputasi terdiri atas penilaian mutu dan keterkenalan."},
+{c:"Kock (2015)",j:"International Journal of e-Collaboration, 11(4), 1–10",st:"ok",s:"Internasional, Scopus",u:"https://doi.org/10.4018/ijec.2015100101",v:"Bab 3",n:"Uji full collinearity (VIF ≤ 3,3) untuk common method bias."},
+{c:"Hair, Hult, Ringle & Sarstedt (2022)",j:"A Primer on PLS-SEM, edisi ke-3 (buku, SAGE)",st:"nj",s:"Buku",v:"Bab 3",n:"Rujukan kriteria PLS-SEM di Bab III (sebelumnya tertulis Hair et al., 2021)."}
+];
+var CH=[["all","Semua"],["pdf","Ada PDF"],["ok","SINTA 1–4 / Scopus"],["low","Di bawah SINTA 4"],["na","Belum terverifikasi"],["sec","Kutipan sekunder"],["nj","Bukan jurnal"],["X1","X1"],["X2","X2"],["X3","X3"],["Y","Y"],["Teori sinyal","Teori sinyal"]];
+var cls={ok:"p-ok",low:"p-no",na:"p-warn",sec:"p-na",nj:"p-na"};
+var f="all";
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function plain(s){return s.replace(/<[^>]+>/g,'')}
+function scholar(d){return "https://scholar.google.com/scholar?q="+encodeURIComponent(d.c.replace(/[()]/g,' ')+' '+(d.j.indexOf('Belum')===0?'':d.j))}
+function sinta(d){var j=d.j.split(/[,(]/)[0].trim();return "https://sinta.kemdiktisaintek.go.id/journals?q="+encodeURIComponent(j)}
+function card(d){
+ var h='<article class="card"><div class="pills"><span class="pill '+cls[d.st]+'">'+esc(d.s)+'</span>'+(d.v?'<span class="pill p-na">'+esc(d.v)+'</span>':'')+(d.pdf?'<span class="pill p-ok">PDF tersedia</span>':'')+'</div>';
+ h+='<h3>'+esc(d.c)+'</h3><p class="jr">'+esc(d.j)+'</p>';
+ if(d.n)h+='<p class="note">'+d.n+'</p>';
+ h+='<div class="acts">';
+ (d.pdf||[]).forEach(function(p,i){h+='<a class="a pdf" target="_blank" rel="noopener" href="'+BASE+'pdf/'+p+'">'+(d.pl?d.pl[i]:'Buka PDF')+'</a>'});
+ if(d.u)h+='<a class="a" target="_blank" rel="noopener" href="'+esc(d.u)+'">Link asli</a>';
+ if(d.u2)h+='<a class="a" target="_blank" rel="noopener" href="'+esc(d.u2)+'">Kandidat lain</a>';
+ if(d.st!=='nj'&&d.st!=='sec'&&d.j.indexOf('Belum')!==0)h+='<a class="a" target="_blank" rel="noopener" href="'+sinta(d)+'">Cek SINTA</a>';
+ h+='<a class="a" target="_blank" rel="noopener" href="'+scholar(d)+'">Scholar</a></div></article>';
+ return h}
+function render(){
+ var q=document.getElementById('q').value.toLowerCase().trim();
+ var r=D.filter(function(d){
+  var hay=(d.c+' '+d.j+' '+d.s+' '+(d.v||'')+' '+plain(d.n||'')).toLowerCase();
+  if(q&&q.split(/\s+/).some(function(w){return hay.indexOf(w)<0}))return false;
+  if(f==='all')return true;if(f==='pdf')return !!d.pdf;
+  if(['ok','low','na','sec','nj'].indexOf(f)>=0)return d.st===f;
+  return d.v===f});
+ document.getElementById('list').innerHTML=r.length?r.map(card).join(''):'<p class="empty">Tidak ada sumber yang cocok.</p>';
+ document.getElementById('count').textContent=r.length+' dari '+D.length+' sumber';
+}
+document.getElementById('chips').innerHTML=CH.map(function(c){return '<button type="button" class="chip" data-f="'+c[0]+'" aria-pressed="'+(c[0]==='all')+'">'+c[1]+'</button>'}).join('');
+document.querySelectorAll('.chip').forEach(function(b){b.onclick=function(){f=b.dataset.f;document.querySelectorAll('.chip').forEach(function(k){k.setAttribute('aria-pressed',k===b)});render()}});
+document.getElementById('q').oninput=render;
+document.getElementById('f').onsubmit=function(e){e.preventDefault()};
+document.getElementById('clr').onclick=function(){document.getElementById('q').value='';render()};
+var n=function(t){return D.filter(t).length};
+document.getElementById('stats').innerHTML=[[D.length,'sumber'],[n(function(d){return d.pdf}),'punya PDF'],[n(function(d){return d.st==='ok'}),'SINTA 1–4 / Scopus'],[n(function(d){return d.st==='low'}),'di bawah SINTA 4'],[n(function(d){return d.st==='na'}),'perlu dicek']].map(function(s){return '<div><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'}).join('');
+var root=document.documentElement;try{var t=localStorage.getItem('tema');if(t)root.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: dark)').matches)root.dataset.theme='dark'}catch(e){}
+document.getElementById('theme').onclick=function(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('tema',root.dataset.theme)}catch(e){}};
+render();
+</script>
+</body>
+</html>
